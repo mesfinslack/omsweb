@@ -1,0 +1,108 @@
+<div class="py-3">
+  <div class="container">
+  <div class="row">
+   <div class="col-md-3">
+        <h3 class="">SEARCH AGENCY</h3>
+    </div>
+     <div class="col-md-6">
+     <button ng-show="filter" ng-click="filter=false" ng-init="filter=true" class="btn btn-primary">Hide Search form
+            <i class="fa fa-send ml-2"></i>
+     <button ng-hide="filter" ng-click="filter=true" class="btn btn-primary"> Show Search form
+            <i class="fa fa-send ml-2"></i>
+     </button>
+     </button>
+    </div> 
+    </div>
+<form class="row" ng-show="filter">
+            
+<div class="p-3 col-md-3 bg-primary">
+
+  <div class="form-group"> 
+    <label for="region">REGION:</label> 
+    <select ng-model="searchregion" id="region" class="form-control"><option value="">ALL</option><option value="DEBUB">DEBUB</option><option value="F">AMHARA</option><option value="OROMIA">OROMIA</option><option value="TIGRAY">TIGRAY</option><option value="ADDIS ABEBA">ADDIS ABEBA</option><option value="GAMBELA">GAMBELA</option><option value="BENSHANGUL">BENSHANGUL</option>
+    </select> 
+  </div>
+
+
+
+</div>
+
+
+      
+<div class="p-3 col-md-3 bg-secondary">
+
+  <div class="form-group">
+    <label for="zone">ZONE:</label>
+    <input type="text" class="form-control" id="zone" ng-model="searchzone">
+  </div>
+</div> 
+
+<div class="p-3 col-md-3 bg-primary">
+
+  <div class="form-group">
+    <label for="town">TOWN:</label>
+    <input type="text" class="form-control" id="town" ng-model="searchtown">
+  </div>         
+
+</div>
+<div class="p-3 col-md-3 bg-secondary">
+
+  <div class="form-group"> <label>NAME OF AGENCY</label>
+   <input class="form-control" ng-model="searchname" placeholder="DEMEKE MAID SERVICE">
+  </div>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="container" style="background-color:#E4FFE7;">
+  <div class="row">
+    <div class="p-3 col-md-12">
+      <nav class="navbar navbar-default" style="background-color:#350700;">
+        <div class="container-fluid">
+      <h3 class="text-white" >AGENCY FOUND</h3>>
+        </div>
+      </nav>
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+  <th>#</th>
+  <th>Agency Name</th>
+  <th>address</th>
+  <th>phone</th>
+  <th>fax</th>
+
+  <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let agency of agencies">
+  <td>{{ agency.id }}</td>
+  <td>{{ agency.name }}</td>
+  <td>{{ agency.town }}</td>
+  <td>{{ agency.phone }}</td>
+  <td>{{ agency.fax }}</td>
+  <td> 
+    <a href="#/searchagency/{{agency.id}}/show" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> Show  </a>
+  </td>
+</tr>
+</tbody>
+</table>
+
+
+
+      
+    </div>
+  </div>
+</div>
+
+

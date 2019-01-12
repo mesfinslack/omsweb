@@ -1,0 +1,155 @@
+
+ 
+  <div class="py-3"   >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="">
+            <h1 class="text-uppercase"> {{maid.fname}} {{maid.lname}}  DETAIL INFORMATION</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 " ng-init = "getcurrentuser()" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-6 p-2">
+            <div class="row p-2">
+             <img class="img-fluid d-block" src="images/maids/{{maid.imagefront1}}">             
+            </div>
+            <div class="row p-2">
+            <div class="col-md-6">    <img class="img-fluid d-block" src="images/maids/{{maid.imageside2}}">  </div>
+            <div class="col-md-6">    <img class="img-fluid d-block" src="images/maids/{{maid.imageside3}}">  </div>           
+            </div>
+        </div>
+        <div class="col-md-6 p-2">
+          <table class="table" >
+            <thead>
+              <tr>
+                <th>PROPERTIES</th>
+                <th>INFORMATION</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Full name</td>       
+                <td>{{maid.fname}} {{maid.lname}}</td>
+              </tr>
+              <tr>
+                <td>sex</td>       
+                <td>{{maid.sex}}</td>
+              </tr>
+              <tr>
+                <td>age range</td>       
+                <td>{{maid.agerange}}</td>
+              </tr>
+              <tr>
+                <td>hieght</td>       
+                <td>{{maid.hieght}}</td>
+              </tr>
+              <tr>
+                <td>weight</td>       
+                <td>{{maid.weight}}</td>
+              </tr>
+              <tr>
+                <td>martual Status</td>       
+                <td>{{maid.martualstatus}}</td>
+              </tr>
+              <tr>
+                <td>no Of Children</td>       
+                <td>{{maid.noofchildren}}</td>
+              </tr>
+              <tr>
+                <td>education Status</td>       
+                <td>{{maid.educationlevel}}</td>
+              </tr>
+              <tr>
+                <td>off Days</td>       
+                <td>{{maid.offdays}}</td>
+              </tr>
+              <tr>
+                <td>expected Sallary</td>       
+                <td>{{maid.expectedsallary}}</td>
+              </tr>
+              <tr>
+                <td>religion</td>       
+                <td>{{maid.religion}}</td>
+              </tr>
+              <tr>
+                <td>description</td>       
+                <td>{{maid.description}}</td>
+              </tr>
+              <tr>
+                <td>availability</td>       
+                <td>{{maid.availability}}</td>
+              </tr>
+              <tr>
+                <td>region</td>       
+                <td>{{maid.region}}</td>
+              </tr>
+              <tr>
+                <td>zone</td>       
+                <td>{{maid.zone}}</td>
+              </tr>
+              <tr>
+                <td>town</td>       
+                <td>{{maid.town}}</td>
+              </tr>
+              <tr>
+                <td>requests</td>       
+                <td>{{maid.requests}}</td>
+              </tr>
+              <tr>
+                <td>language 1</td>       
+                <td>{{maid.language1}}</td>
+              </tr>
+              <tr>
+                <td>language 2</td>       
+                <td>{{maid.language2}}</td>
+              </tr>
+              <tr>
+                <td>language 3</td>       
+                <td>{{maid.language3}}</td>
+              </tr>
+              <tr>
+                <td>skill 1</td>       
+                <td>{{maid.maidskill1}}</td>
+              </tr>
+               <tr>
+                <td>skill 2</td>       
+                <td>{{maid.maidskill2}}</td>
+              </tr>
+               <tr>
+                <td>skill 3</td>       
+                <td>{{maid.maidskill3}}</td>
+              </tr>
+
+              <tr>
+                <td>maid Agency</td>       
+                <td>{{maid.maidagency}}</td>
+              </tr>
+              <tr>
+                <td>startDate</td>       
+                <td>{{maid.startdate}}</td>
+              </tr>
+
+
+              <tr >
+                <td ng-init="checkrequested()">
+                <div ng-show="currentuser.usertype=='customer'" >
+                  <a ng-hide="requested" ng-click="requestmaid(maid.id)" class="btn btn-outline-success active">REQUEST {{maid.fname}}</a>
+                  <a ng-show="requested" ng-click="cancelrequestmaid(maid.id)" class="btn btn-outline-success active"> CANCEL 
+                  REQUESTING {{maid.fname}} </a>               
+                  <a class="btn btn-outline-danger active"  (click)="goBack()" >BACK</a>
+                  </div>                  
+                  <a ng-hide="currentuser.usertype=='customer'" (click)="goBack()" class="btn btn-outline-danger active">BACK</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

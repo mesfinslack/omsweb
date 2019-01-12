@@ -1,0 +1,63 @@
+<p>
+  contact works!
+</p>
+
+
+
+
+
+  <div  class="modalfade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--Modal: Contact form-->
+    <div class="modal-dialog cascading-modal" role="document">
+      <!--Content-->
+      <form ng-submit=""> 
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header primary-color white-text">
+          <h4 class="title">
+            <i class="fa fa-pencil"></i> Contact Administrators</h4>
+
+        </div>
+        <!--Body-->
+       
+        <div class="modal-body">
+          <!-- Material input name -->
+          <div class="md-form form-sm">
+            <i class="fa fa-envelope prefix"></i>
+            <label >Your name</label>
+            <input type="text"  class="form-control form-control-sm" ng-model="contact.name" required="">
+            
+          </div>
+          <!-- Material input email -->
+          <div class="md-form form-sm">
+            <i class="fa fa-lock prefix"></i>
+            <label >Your email</label>
+            <input type="email"  class="form-control form-control-sm" ng-model="contact.email" required="">
+          </div>
+          <!-- Material input phone -->
+          <div class="md-form form-sm">
+            <i class="fa fa-tag prefix"></i>
+            <label >phone</label>
+            <input type="text"  class="form-control form-control-sm" ng-model="contact.phone" required="">
+            
+          </div>
+          <!-- Material textarea message -->
+          <div class="md-form form-sm">
+            <i class="fa fa-pencil prefix"></i> 
+             <label >Your message</label>
+            <textarea type="text"  class="md-textarea form-control" ng-model="contact.message" required=""></textarea>
+          
+          </div>
+          <div class="text-center mt-4 mb-2">
+            <button type = "submit" class="btn btn-primary">Send
+              <i class="fa fa-send ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+     </form>
+      <!--/.Content-->
+    </div>
+    <!--/Modal: Contact form-->
+  </div>
+

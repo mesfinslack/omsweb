@@ -1,0 +1,149 @@
+
+<div class="py-3">
+  <div class="container">
+<div class="row">
+   <div class="col-md-2">
+        <h3 class="">SEARCH MAID</h3>
+    </div>
+     <div class="col-md-6">
+     <button *ngIf="filter" (click)="filter=false" ng-init="filter=true" class="btn btn-primary">Hide Search form
+            <i class="fa fa-send ml-2"></i>
+     <button [hidden]="filter" (click)="filter=true" class="btn btn-primary"> Show Search form
+            <i class="fa fa-send ml-2"></i>
+     </button>
+     </button>
+    </div> 
+    </div>
+
+<form ng-show="filter" class="row" ng-submit="searchmaid(maid)">
+  
+      <div class="p-3 col-md-3 bg-primary">
+
+<div class="form-group"> 
+    <label for="maidskill1">SKILL:</label> 
+    <select ng-model="searchmaidskill" id="maidskill1" class="form-control" required="" ><option value="">ALL</option><option  selected="selected" value="HOTEL WORK">HOTEL WORK</option><option value="COOKING HOME"> COOKING HOME</option><option value="CLEANING ROOM">CLEANING ROOM</option><option value="CHILD CARE">CHILD CARE</option><option value="KEEPER">KEEPER</option><option value="GARDEN CARE">GARDEN CARE</option>
+    </select> 
+   </div>
+
+     <div class="form-group"> 
+       <label for="educationlevel">EDUCATION LEVEL:</label> 
+       <select ng-model="searcheducationlevel" class="form-control" id="educationlevel"><option value="">ALL</option><option value="ELEMENTARY 1-6 GRADE">ELEMENTARY 1-6 GRADE</option><option value="ELEMENTARY 7-8 GRADE">ELEMENTARY 7-8 GRADE</option><option value="HIGH SCHOOL">HIGH SCHOOL</option><option value="PRIPARATORY">PRIPARATORY</option><option value="COLLEGE">COLLEGE</option><option value="DEGREE">DEGREE</option></select>
+     </div>
+
+
+ <div class="form-group"> 
+    <label for="age">AGE RANGE:</label>
+    <select ng-model="searchage" class="form-control" id="age"><option value="">ALL</option><option value="18-25">18-25</option><option value="26-30">26-30</option><option value="31-36">31-36</option><option value="Above 36">36 Above</option>
+    </select> 
+ </div>
+
+ <div class="form-group"> 
+     <label for="salarylevel">SALLARY LEVEL PER MONTH:</label>
+     <select ng-model="searchexpectedsallary" id="salarylevel" class="form-control"><option value="">ALL</option><option value="1000 - 1999">1000 - 1999</option><option value="2000-2999">2000-2999</option><option value="3000-3999">3000-3999</option><option value="4000-4999">4000-4999</option><option value="above 5000">above 5000</option>
+     </select>           
+  </div> 
+
+  </div>
+
+
+      <div class="col-md-1 "></div>
+
+      <div class="p-4 col-md-3 bg-secondary">
+
+<div class="form-group">
+  <label for="martualstatus">MARTUAL STATUS:</label>
+  <select ng-model="searchmartualstatus" id="martualstatus" class="form-control"><option value="">ALL</option><option value="SINGLE">SINGLE</option><option value="MARRIED">MARRIED</option><option value="DIVORCED">DIVORCED</option></select> 
+</div>
+
+<div class="form-group"> 
+    <label for="language1">LANGUAGE SPEAKS MAINLY:</label> 
+    <select ng-model="searchlanguage1" id="language1" class="form-control"><option value="">ALL</option><option value="AMHARIC">AMHARIC</option><option value="GEDEUFFA">GEDEUFFA</option><option value="OROMIFFA">OROMIFFA</option><option value="SIDAMIGNA">SIDAMIGNA</option><option value="WELAITIGNA">WELAITIGNA</option><option value="GURAGIGNA">GURAGIGNA</option><option value="TIGIRGNA">TIGIRGNA</option>
+    </select> 
+  </div>
+
+  <div class="form-group"> 
+     <label for="religion">RELIGION:</label> 
+     <select ng-model="searchreligion" id="religion" class="form-control"><option value="">ALL</option><option value="PROTESTANT"> PROTESTANT</option><option value="ORTHODOX">ORTHODOX</option><option value="MUSLIM">MUSLIM</option><option value="OTHER">OTHER</option>
+    </select> 
+  </div>
+
+
+  <div class="form-group"> 
+    <label for="region">REGION:</label> 
+    <select ng-model="searchregion" id="region" class="form-control"><option value="">ALL</option><option value="DEBUB">DEBUB</option><option value="F">AMHARA</option><option value="OROMIA">OROMIA</option><option value="TIGRAY">TIGRAY</option><option value="ADDIS ABEBA">ADDIS ABEBA</option><option value="GAMBELA">GAMBELA</option><option value="BENSHANGUL">BENSHANGUL</option>
+    </select> 
+  </div>
+
+    </div>
+      <div class="col-md-1 "></div>
+      <div class="p-4 col-md-4 bg-primary">
+
+  <div class="form-group">
+    <label for="zone">ZONE:</label>
+    <input type="text" class="form-control" id="zone" ng-model="searchzone">
+  </div>
+  <div class="form-group">
+    <label for="town">TOWN:</label>
+    <input type="text" class="form-control" id="town" ng-model="searchtown">
+  </div>
+
+   <div class="form-group"> </div>
+ 
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+
+<div class="container" style="background-color:#E4FFE7;">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default" style="background-color:#350700;">
+        <div class="container-fluid">
+      <h3 class="text-white" >MAID FOUND</h3>>
+        </div>
+      </nav>
+
+
+
+<table class="table table-bordered" ng-init="allavailablemaid()">
+<thead>
+<tr>
+  <th>#</th>
+  <th>Name</th>
+  <th>address</th>
+  <th>salary</th>
+  <th>martual status</th>
+
+  <th>agency</th>
+  <th>Actions</th>
+</tr>
+</thead>
+<tbody >
+<tr  *ngFor="let maid of maids ">
+  <td>{{ maid.id }}</td>
+  <td>{{ maid.fname }}</td>
+  <td>{{ maid.town }}</td>
+  <td>{{ maid.expectedsallary }}</td>
+  <td>{{ maid.martualstatus }}</td>
+  <td>{{ maid.maidagency }}</td>
+  <td> 
+    <a routerLink="/searchmaid/show/{{maid.id}}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> Show  </a>
+  </td> 
+</tr>
+</tbody>
+</table>
+
+
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
